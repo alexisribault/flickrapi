@@ -15,4 +15,3 @@ Route::get('/', [ 'as' => 'home', 'uses' => 'GalleryController@index']);
 Route::post('/search', [ 'as' => "search", 'uses' => 'GalleryController@search']);
 Route::get('/search/{query}/{id}', [ 'as' => "search.page", 'uses' => 'GalleryController@page']);
 Route::get('/searchAPI', [ 'as' => "searchAPI", 'uses' => 'GalleryController@searchAPI']);
-Route::get('/image', [ 'as' => "image", 'uses' => 'GalleryController@fullSizeImage']);

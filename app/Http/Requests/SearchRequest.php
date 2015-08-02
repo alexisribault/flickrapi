@@ -24,7 +24,7 @@ class SearchRequest extends Request
     public function rules()
     {
         return [
-            'photoSearch' => 'required'
+            'photoSearch' => 'required|string'
         ];
     }
 }
