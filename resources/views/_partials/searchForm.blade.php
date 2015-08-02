@@ -3,7 +3,7 @@
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <div class="form-group">
         <label for="photoSearch">Search for photos</label>
-        <input type="text" class="form-control" id="photoSearch" value="@if(isset($query)) {{$query}} @endif" name="photoSearch" placeholder="Photo...">
+        <input type="text" class="form-control" id="photoSearch" value="@if(isset($query)){{$query}}@endif" name="photoSearch" placeholder="Photo...">
     </div>
     @if (count($errors) > 0)
         <div class="alert alert-danger">
@@ -14,5 +14,6 @@
             </ul>
         </div>
     @endif
-    <button type="submit" class="btn btn-default">Submit</button>
+    <button type="submit" value="Submit" class="btn btn-default">Submit</button>
 </form>
+<hr>
