@@ -23,7 +23,7 @@ class GalleryController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display the landing page
      *
      * @return Response
      */
@@ -33,6 +33,8 @@ class GalleryController extends Controller
     }
 
     /**
+     * search in Flickr API for a specific set of keywords
+     *
      * @param SearchRequest $request
      * @param int $id
      * @return mixed
@@ -48,6 +50,8 @@ class GalleryController extends Controller
     }
 
     /**
+     * retrieve the page and keywords that the user entered
+     *
      * @param $query
      * @param $id
      * @return \Illuminate\View\View

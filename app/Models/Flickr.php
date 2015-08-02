@@ -8,6 +8,8 @@ class Flickr
 {
 
     /**
+     * set the url to retrieve the right data from flickr API
+     *
      * @param null $query
      * @param int $page
      * @param int $per_page
@@ -32,6 +34,8 @@ class Flickr
     }
 
     /**
+     * use curl to grab the data.
+     *
      * @param $url
      * @return mixed|null
      */
