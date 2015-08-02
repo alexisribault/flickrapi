@@ -15,7 +15,7 @@ class FlickrRepository implements FlickrRepositoryInterface
      */
     public function search($query, $id)
     {
-        $flickr = new Flickr('e0ba7d61f2630a0eb0657338cd4ccf16');
+        $flickr = new Flickr;
         return $flickr->search($query, $id);
     }
 

@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SearchRequest;
-use App\Models\Flickr;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Repositories\FlickrRepositoryInterface;

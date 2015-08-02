@@ -2,32 +2,41 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Facades\Config;
+
 class Flickr
 {
-    private $apiKey;
 
-    public function __construct($apikey = null) {
-        $this->apiKey = $apikey;
-    }
-
-    public function search($query = null, $page = 1, $user_id = null, $per_page = 5, $format = 'php_serial') {
-        $args = [
-            'method' => 'flickr.photos.search',
-            'api_key' => $this->apiKey,
-            'text' => urlencode($query),
-            'page' => $page,
-            'user_id' => $user_id,
-            'per_page' => $per_page,
-            'format' => $format
+    /**
+     * @param null $query
+     * @param int $page
+     * @param int $per_page
+     * @param string $format
+     * @return mixed|null
+     */
+    public function search($query = null, $page = 1, $per_page = 5, $format = 'php_serial')
+    {
+        $parameters = [
+            'method'   => 'flickr.photos.search',
+            'api_key'  => Config::get('flickr.key'),
+            'text'     => urlencode($query),
+            'page'     => $page,
+            'per_page' => Config::get('flickr.photoPerPage'),
+            'format'   => $format
         ];
         $url = 'http://flickr.com/services/rest/?';
-        $search = $url.http_build_query($args);
+        $search = $url . http_build_query($parameters);
         $result = $this->file_get_contents_curl($search);
         if ($format == 'php_serial') $result = unserialize($result);
         return $result;
     }
 
-    private function file_get_contents_curl($url) {
+    /**
+     * @param $url
+     * @return mixed|null
+     */
+    private function file_get_contents_curl($url)
+    {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_AUTOREFERER, 1);
         curl_setopt($ch, CURLOPT_HEADER, 0);
